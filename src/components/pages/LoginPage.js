@@ -41,8 +41,7 @@ class LoginPage extends Component {
         this.props.history.push("/createAccount");
 
     submit = e => {
-        console.log(this.state.data.username);
-        console.log(this.state.data.password);
+        this.props.history.push("/dashboard");
     }
 
 
