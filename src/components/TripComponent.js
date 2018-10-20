@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Image, Tab, Label, List } from 'semantic-ui-react'
-import TravelIcon from "./img/travelIcon.png";
+import MapFullIcon from "./img/mapFull.png";
 import HeaderComponent from "./HeaderComponent";
 
 /*
@@ -56,7 +56,7 @@ class TripComponent extends Component {
         return (
             <div>
                 <HeaderComponent name = {this.props.history.location.state.name}/>
-                <Image src={TravelIcon}/>
+                <Image src={MapFullIcon}/>
                 <Tab panes = {panes} />
             </div>
         )

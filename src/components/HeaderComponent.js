@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Label, Menu, Divider } from 'semantic-ui-react'
+import "./Header.css"
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -32,12 +33,12 @@ class HeaderComponent extends Component {
     method below that follows the same pattern but does more. */
 
     onClick = (e, {name}) => {
-        if(name === "My Trips") {
-            console.log("My Trips");
-        } else if(name === "Add Trip") {
-            console.log("Add Trip");
-        } else if(name === "My Profile") {
-            console.log("My Profile");
+        if(name === "MY TRIPS") {
+            console.log("MY TRIPS");
+        } else if(name === "ADD TRIP") {
+            console.log("ADD TRIP");
+        } else if(name === "MY PROFILE") {
+            console.log("MY PROFILE");
         }
     };
 
@@ -46,18 +47,20 @@ class HeaderComponent extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.name}</h1>
-            <Menu>
+                <div id={"heading"}>
+                <h1 id={"headerTitle"}>{this.props.name}</h1>
+                </div>
+            <Menu widths={3}>
                 <Menu.Item
-                    name='My Trips'
+                    name='MY TRIPS'
                     onClick={this.onClick}
                 />
                 <Menu.Item
-                    name='Add Trip'
+                    name='ADD TRIP'
                     onClick={this.onClick}
                 />
                 <Menu.Item
-                    name='My Profile'
+                    name='PROFILE'
                     onClick={this.onClick}
                 />
             </Menu>

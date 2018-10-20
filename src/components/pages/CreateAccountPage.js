@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Form, Input} from 'semantic-ui-react';
-import "./LoginPage.css"
+import "./LoginCreateUserPage.css"
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
     If you want something to happen right when the page loads, you will use the lifecycle method called
