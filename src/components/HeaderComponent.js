@@ -43,7 +43,10 @@ class HeaderComponent extends Component {
                     name='My Profile'
                            to = "/profile"
                 />
-                <Menu.Item name="Notifications">
+                <Menu.Item as = {Link}
+                           name="Notifications"
+                           to = "/notification"
+                >
                 </Menu.Item>
             </Menu>
                 <Divider></Divider>

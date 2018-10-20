@@ -9,6 +9,7 @@ import AddTripPage from "./components/pages/AddTripPage";
 import NewTripPage from "./components/pages/NewTripPage";
 import ExistingTripPage from "./components/pages/ExistingTripPage";
 import ProfileComponent from "./components/ProfileComponent";
+import NotificationsComponent from "./components/NotificationsComponent";
 
 
 const App = ({location}) => (
@@ -21,6 +22,7 @@ const App = ({location}) => (
         <Route location={location} path="/newTrip" exact component = {NewTripPage}/>
         <Route location={location} path="/existingTrip" exact component = {ExistingTripPage}/>
         <Route location={location} path="/profile" exact component = {ProfileComponent}/>
+        <Route location={location} path="/notification" exact component = {NotificationsComponent}/>
     </div>
 );
 
