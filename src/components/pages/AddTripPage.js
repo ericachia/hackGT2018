@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Input, Form, Button } from 'semantic-ui-react'
 import HeaderComponent from "./../HeaderComponent";
-import './LoginPage.css'
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot

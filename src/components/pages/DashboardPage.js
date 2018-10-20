@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Input, Form, Image, Card } from 'semantic-ui-react'
 import HeaderComponent from "../HeaderComponent";
-import TravelIcon from "../img/travelIcon.png";
+import MapIcon from "../img/map.png";
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -35,16 +35,18 @@ class DashboardPage extends Component {
     }
 
     render() {
-        const data = ["New York", "Chicago"];
+        const data = ["New York", "Chicago", "Japan","Los Angeles"];
         return (
             <div>
-                <HeaderComponent name = "My Trips"/>
-                {data.map(el => <Card name = {el} onClick={this.onClick}>
-                    <Image src={TravelIcon}/>
-                    <Card.Content>
-                        <Card.Header>{el}</Card.Header>
-                    </Card.Content>
-                </Card>)}
+                <HeaderComponent name = "MY TRIPS"/>
+                <Card.Group itemsPerRow={4}>
+                    {data.map(el => <Card name = {el} onClick={this.onClick}>
+                        <Image src={MapIcon}/>
+                        <Card.Content>
+                            <Card.Header>{el}</Card.Header>
+                        </Card.Content>
+                    </Card>)}
+                </Card.Group>
             </div>
         )
     }

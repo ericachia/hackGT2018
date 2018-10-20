@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Label, Menu, Divider } from 'semantic-ui-react'
+import "./Header.css"
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -29,8 +30,10 @@ class HeaderComponent extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.name}</h1>
-            <Menu>
+                <div id={"heading"}>
+                <h1 id={"headerTItle"}>{this.props.name}</h1>
+                </div>
+            <Menu widths={4}>
                 <Menu.Item as = {Link}
                     name='My Trips'
                     to="/dashboard"
