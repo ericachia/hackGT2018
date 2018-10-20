@@ -27,42 +27,30 @@ class HeaderComponent extends Component {
     };
 
 
-
-    /* This is the most basic onChange method. It can be used for basic functionality like when you change
-    a text field or select something from a dropdown. If you need more functionality, you can create another
-    method below that follows the same pattern but does more. */
-
-    onClick = (e, {name}) => {
-        if(name === "MY TRIPS") {
-            console.log("MY TRIPS");
-        } else if(name === "ADD TRIP") {
-            console.log("ADD TRIP");
-        } else if(name === "MY PROFILE") {
-            console.log("MY PROFILE");
-        }
-    };
-
-
-
     render() {
         return (
             <div>
                 <div id={"heading"}>
-                <h1 id={"headerTitle"}>{this.props.name}</h1>
+                <h1 id={"headerTItle"}>{this.props.name}</h1>
                 </div>
-            <Menu widths={3}>
-                <Menu.Item
-                    name='MY TRIPS'
-                    onClick={this.onClick}
+            <Menu widths={4}>
+                <Menu.Item as = {Link}
+                    name='My Trips'
+                    to="/dashboard"
                 />
-                <Menu.Item
-                    name='ADD TRIP'
-                    onClick={this.onClick}
+                <Menu.Item as = {Link}
+                    name='Add Trip'
+                           to = "/addTrip"
                 />
-                <Menu.Item
-                    name='PROFILE'
-                    onClick={this.onClick}
+                <Menu.Item as = {Link}
+                    name='My Profile'
+                           to = "/profile"
                 />
+                <Menu.Item as = {Link}
+                           name="Notifications"
+                           to = "/notification"
+                >
+                </Menu.Item>
             </Menu>
                 <Divider></Divider>
             </div>
