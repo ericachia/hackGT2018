@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { Input, Form, Button } from 'semantic-ui-react'
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -30,16 +31,44 @@ class LoginPage extends Component {
     a text field or select something from a dropdown. If you need more functionality, you can create another
     method below that follows the same pattern but does more. */
 
-    onChange = e =>
+    onChange = e => {
         this.setState({
             data: {...this.state.data, [e.target.name]:e.target.value}
         });
+    }
+
+    createAccount = e =>
+        this.props.history.push("/createAccount");
+
+    submit = e => {
+        console.log(this.state.data.username);
+        console.log(this.state.data.password);
+    }
+
+
 
     render() {
         return (
             <div>
                 <h1>Login Page</h1>
-                <div><Link to='createAccount'>Create Account</Link></div>
+                <Form onSubmit={this.submit}>
+                    <Form.Field>
+                        <Input placeholder="username"
+                               value = {this.state.data.username}
+                               name = "username"
+                               onChange={this.onChange}/>
+                    </Form.Field>
+                    <Form.Field>
+                        <Input placeholder="password"
+                               value = {this.state.data.password}
+                               name = "password"
+                               onChange={this.onChange}/>
+                    </Form.Field>
+                    <Form.Field>
+                        <Button onClick={this.createAccount}>Create Account</Button>
+                    </Form.Field>
+                    <Form.Button>Login</Form.Button>
+                </Form>
             </div>
         )
     }

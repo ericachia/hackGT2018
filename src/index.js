@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'semantic-ui-css/semantic.min.css';
 
 const store = createStore(
     rootReducer,
