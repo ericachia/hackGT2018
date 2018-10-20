@@ -39,7 +39,7 @@ class DashboardPage extends Component {
         return (
             <div>
                 <HeaderComponent name = "MY TRIPS"/>
-                <Card.Group centered data={data}>
+                <Card.Group itemsPerRow={4}>
                     {data.map(el => <Card name = {el} onClick={this.onClick}>
                         <Image src={MapIcon}/>
                         <Card.Content>
