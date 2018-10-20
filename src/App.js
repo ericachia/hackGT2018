@@ -7,6 +7,7 @@ import './App.css';
 import TripComponent from "./components/TripComponent";
 import AddTripPage from "./components/pages/AddTripPage";
 import NewTripPage from "./components/pages/NewTripPage";
+import ExistingTripPage from "./components/pages/ExistingTripPage";
 
 
 const App = ({location}) => (
@@ -17,6 +18,7 @@ const App = ({location}) => (
         <Route location={location} path="/tripComponent" exact component = {TripComponent}/>
         <Route location={location} path="/addTrip" exact component = {AddTripPage}/>
         <Route location={location} path="/newTrip" exact component = {NewTripPage}/>
+        <Route location={location} path="/existingTrip" exact component = {ExistingTripPage}/>
     </div>
 );
 

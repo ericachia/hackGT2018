@@ -14,17 +14,21 @@ import './LoginPage.css'
     Otherwise, you will just make functions like you normally would for other features
      */
 
-class AddTripPage extends Component {
+class ExistingTripPage extends Component {
 
     render() {
         return (
             <div>
-                <HeaderComponent name = "Add Trip"/>
-            <Button as ={Link} to = "/newTrip">New Trip</Button>
-            <Button as ={Link} to = "/existingTrip">Enter Existing Trip</Button>
+                <HeaderComponent name = "Travel Code"/>
+                <Form>
+                    <Form.Field>
+                        <Input placeholder = "Enter Travel Code"/>
+                    </Form.Field>
+                    <Button type="submit">Enter Code</Button>
+                </Form>
             </div>
         )
     }
 }
 
-export default AddTripPage;
+export default ExistingTripPage;
