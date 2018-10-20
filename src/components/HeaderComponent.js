@@ -31,23 +31,23 @@ class HeaderComponent extends Component {
         return (
             <div>
                 <div id={"heading"}>
-                <h1 id={"headerTItle"}>{this.props.name}</h1>
+                <h1 id={"headerTitle"}>{this.props.name}</h1>
                 </div>
             <Menu widths={4}>
                 <Menu.Item as = {Link}
-                    name='My Trips'
+                    name='MY TRIPS'
                     to="/dashboard"
                 />
                 <Menu.Item as = {Link}
-                    name='Add Trip'
+                    name='ADD TRIP'
                            to = "/addTrip"
                 />
                 <Menu.Item as = {Link}
-                    name='My Profile'
+                    name='MY PROFILE'
                            to = "/profile"
                 />
                 <Menu.Item as = {Link}
-                           name="Notifications"
+                           name="NOTIFICATIONS"
                            to = "/notification"
                 >
                 </Menu.Item>
