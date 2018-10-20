@@ -38,9 +38,7 @@ class CreateAccountPage extends Component {
         });
 
     submit = e => {
-        console.log(this.state.data.name);
-        console.log(this.state.data.username);
-        console.log(this.state.data.password);
+        this.props.history.push("/");
     }
 
     render() {
