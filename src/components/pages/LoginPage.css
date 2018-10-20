@@ -1,0 +1,23 @@
+
+body {
+    text-align: center;
+
+}
+
+#container {
+    margin: 100px;
+}
+
+#title {
+    color: #FFBF8A;
+    font-size: 55px;
+}
+
+#signInButton,
+#createAccountButton {
+    background-color: #FFBF8A;
+    color: white;
+    width: 200px;
+}
+
+

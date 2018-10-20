@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Form, Input} from 'semantic-ui-react';
+import "./LoginPage.css"
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
     If you want something to happen right when the page loads, you will use the lifecycle method called
@@ -44,8 +45,8 @@ class CreateAccountPage extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Create Account Page</h1>
+            <div id={"container"}>
+                <h1 id={"title"}>REGISTER</h1>
                 <Form onSubmit = {this.submit}>
                     <Form.Field>
                         <Input placeholder = "Input Name"
@@ -65,7 +66,7 @@ class CreateAccountPage extends Component {
                         name = "password"
                         value = {this.state.data.password}/>
                     </Form.Field>
-                    <Form.Button>Create Account</Form.Button>
+                    <Form.Button id={"createAccountButton"}>CREATE ACCOUNT</Form.Button>
                 </Form>
             </div>
         )
