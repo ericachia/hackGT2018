@@ -39,6 +39,7 @@ class LoginPage extends Component {
         return (
             <div>
                 <h1>Login Page</h1>
+                <div><Link to='createAccount'>Create Account</Link></div>
             </div>
         )
     }
