@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Input, Form, Button } from 'semantic-ui-react'
+import './LoginPage.css'
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -48,8 +49,8 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Login Page</h1>
+            <div id={"container"}>
+                <h1 id={"title"}>TRAVEL APP</h1>
                 <Form onSubmit={this.submit}>
                     <Form.Field>
                         <Input placeholder="username"
@@ -63,10 +64,11 @@ class LoginPage extends Component {
                                name = "password"
                                onChange={this.onChange}/>
                     </Form.Field>
+                    <Form.Button id={"signInButton"}>SIGN IN</Form.Button>
                     <Form.Field>
-                        <Button onClick={this.createAccount}>Create Account</Button>
+                        <Button id={"createAccountButton"} onClick={this.createAccount}>CREATE ACCOUNT</Button>
                     </Form.Field>
-                    <Form.Button>Login</Form.Button>
+
                 </Form>
             </div>
         )
