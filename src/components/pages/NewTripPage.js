@@ -16,20 +16,45 @@ import HeaderComponent from "./../HeaderComponent";
 
 class NewTripPage extends Component {
 
+    state = {
+        data: {
+            trip: ""
+        }
+    };
+
+    onChange = e => {
+        this.setState({
+            data: {...this.state.data, [e.target.name]:e.target.value}
+        });
+    }
+
+    submit = e => {
+        const url = "https://skilful-courage-220001.appspot.com/create/trip?user_id=1&amountDue=69&tripName=" + this.state.data.trip;
+        console.log(url);
+        fetch(url, {
+            method: "GET"
+        }).then(res => {
+            this.props.history.push("/dashboard");
+        });
+    }
+
     render() {
         return (
             <div>
                 <HeaderComponent name = "New Trip"/>
-                <Form>
+                <Form onSubmit = {this.submit}>
                     <Form.Field>
-                        <Input placeholder = "Trip Name"/>
+                        <Input placeholder = "Trip Name"
+                        name = "trip"
+                        value = {this.state.data.trip}
+                        onChange={this.onChange}/>
                     </Form.Field>
-                    <Form.Field>
-                        <Input placeholder = "Location"/>
-                    </Form.Field>
-                    <Form.Field>
-                        <Input placeholder = "Begin Date"/>
-                    </Form.Field>
+                    {/*<Form.Field>*/}
+                        {/*<Input placeholder = "Location"/>*/}
+                    {/*</Form.Field>*/}
+                    {/*<Form.Field>*/}
+                        {/*<Input placeholder = "Begin Date"/>*/}
+                    {/*</Form.Field>*/}
                     <Button type="submit">Create Trip</Button>
                 </Form>
             </div>
