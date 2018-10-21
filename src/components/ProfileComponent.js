@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Divider, Icon } from 'semantic-ui-react'
+import {Divider, Icon, Card, Segment} from 'semantic-ui-react'
 import HeaderComponent from "./HeaderComponent";
+import MapIcon from "./img/map.png";
 
 
 /*
@@ -17,14 +18,29 @@ import HeaderComponent from "./HeaderComponent";
 class ProfileComponent extends Component {
 
     render() {
+        const data = [
+            {
+                header: "Captial One Credit Card",
+                meta: "Payments to Friends In Use",
+                description: "****-****-****-12345"
+            }
+        ];
         return (
             <div>
-                <HeaderComponent name = "My Profile"/>
+                <HeaderComponent name = "PROFILE"/>
                 <Icon name = "user" size = "massive"/>
                 <h1>Erica Chia</h1>
-                <Divider></Divider>
-                <p>Payment Information:</p>
-                <p>**** - **** - **** - 3293</p>
+                <Segment>
+                    <h3>Payment Information</h3>
+                </Segment>
+                <Card centered data={"data"}>
+                    {data.map(el =>
+                    <Card.Content>
+                        <Card.Header>{el.header}</Card.Header>
+                        <Card.Description>{el.meta}</Card.Description>
+                        <Card.Description>{el.description}</Card.Description>
+                    </Card.Content>)}
+                </Card>
             </div>
         )
     }

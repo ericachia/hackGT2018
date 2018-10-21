@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { List } from 'semantic-ui-react'
+import {Card, Icon} from 'semantic-ui-react'
 import HeaderComponent from "./HeaderComponent";
+import MapIcon from "./img/map.png";
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -19,16 +20,22 @@ class NotificationsComponent extends Component {
         const data = [{name: "Erica Chia", amt: "$40.53"}, {name: "Patricia Ray", amt: "$32.43"}];
         return (
             <div>
-                <HeaderComponent name = "Payments Due"/>
-                <List divided relaxed>
-                    {data.map(el =>
-                    <List.Item>
-                        <List.Content>
-                            <List.Header>{el.name}</List.Header>
-                            <List.Description>Amount Due:{el.amt}</List.Description>
-                        </List.Content>
-                    </List.Item>)}
-                </List>
+                <HeaderComponent name = "PAYMENTS DUE"/>
+
+                <Card.Group centered data={"data"}>
+                    {data.map(el => <Card name = {el} onClick={this.onClick}>
+                        <Card.Content>
+                            <Card.Header>{el.name}</Card.Header>
+                        </Card.Content>
+                        <Card.Content>
+                            <Card.Meta>Amount Owed:</Card.Meta>
+                            <Card.Description>{el.amt}</Card.Description>
+                        </Card.Content>
+
+                    </Card>)}
+                </Card.Group>
+
+
             </div>
         )
     }

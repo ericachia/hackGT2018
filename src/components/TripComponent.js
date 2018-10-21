@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Image, Tab, Label, List } from 'semantic-ui-react'
+import { Image, Tab, Label, List, Segment } from 'semantic-ui-react'
 import MapFullIcon from "./img/mapFull.png";
 import HeaderComponent from "./HeaderComponent";
 
@@ -51,7 +51,11 @@ class TripComponent extends Component {
                     )}
                     </List>
                 </Tab.Pane> },
-            { menuItem: 'Summary', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> }
+            { menuItem: 'Summary', render: () =>
+                    <Tab.Pane>
+                        TRAVEL CODE: ABC123
+                    </Tab.Pane>
+            }
         ]
         return (
             <div>
