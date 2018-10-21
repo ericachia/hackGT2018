@@ -76,7 +76,6 @@ class LoginPage extends Component {
                     <Form.Field>
                         <Button id={"createAccountButton"} onClick={this.createAccount}>CREATE ACCOUNT</Button>
                     </Form.Field>
-
                 </Form>
             </div>
         )
