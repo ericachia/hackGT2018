@@ -27,12 +27,13 @@ class DashboardPage extends Component {
     onClick = (e, {name}) => {
         this.props.history.push({
             pathname: "/tripComponent",
-            state: {name: name}
+            state: {name: name, userId: this.props.history.location.state.userId}
         });
     }
 
     componentDidMount = () => {
-        fetch("https://skilful-courage-220001.appspot.com/trip?userID=10").then(response => response.json())
+        const userId = this.props.history.location.state.userId;
+        fetch("https://skilful-courage-220001.appspot.com/trip?userID=" + userId).then(response => response.json())
             .then(json => {
                 this.setState({
                     data: json
@@ -44,7 +45,7 @@ class DashboardPage extends Component {
     render() {
         return (
             <div>
-                <HeaderComponent name = "MY TRIPS"/>
+                <HeaderComponent name = "MY TRIPS" id = {this.props.history.location.state.userId}/>
                 <Card.Group itemsPerRow={4}>
                     {this.state.data.map(el => <Card name = {el.trip_name} onClick={this.onClick}>
                         <Image src={MapIcon}/>

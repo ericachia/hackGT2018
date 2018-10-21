@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Image, Tab, Label, List, Segment } from 'semantic-ui-react'
+import { Image, Tab, Label, List, Segment, Button } from 'semantic-ui-react'
 import MapFullIcon from "./img/mapFull.png";
 import HeaderComponent from "./HeaderComponent";
 
@@ -25,17 +25,24 @@ class TripComponent extends Component {
         names: []
     };
 
+    endTrip = () => {
+        this.props.history.push({
+            pathname: "/notification",
+            state: {tripName: this.props.history.location.state.name, userId: this.props.history.location.state.userId}
+        });
+    }
+
 
     componentDidMount = () => {
-        console.log(this.props.history.location.state.name);
-        fetch("https://skilful-courage-220001.appspot.com/transaction?tripID=1").then(response => response.json())
+        const tripName = this.props.history.location.state.name;
+        fetch("https://skilful-courage-220001.appspot.com/transaction?tripName=" + tripName).then(response => response.json())
             .then(json => {
                 this.setState({
                     data: json
                 });
                 console.log(this.state.data);
                 for(var i  = 0; i < this.state.data.length; i++) {
-                    fetch("https://skilful-courage-220001.appspot.com/user/" + this.state.data[i].user_id).then(
+                    fetch("https://skilful-courage-220001.appspot.com/user?userID=" + this.state.data[i].user_id).then(
                         response => response.json()).then(json => {
                             let nameList = this.state.names;
                             nameList.push(json[0].firstname + " " + json[0].lastname);
@@ -68,15 +75,16 @@ class TripComponent extends Component {
                 </Tab.Pane> },
             { menuItem: 'Summary', render: () =>
                     <Tab.Pane>
-                        TRAVEL CODE: ABC123
+                       Trip Code: {this.state.data[0].trip_name}
                     </Tab.Pane>
             }
         ]
         return (
             <div>
-                <HeaderComponent name = {this.props.history.location.state.name}/>
+                <HeaderComponent name = {this.props.history.location.state.name} id = {this.props.history.location.state.userId}/>
                 <Image src={MapFullIcon}/>
                 <Tab panes = {panes} />
+                <Button onClick = {this.endTrip}>End Trip</Button>
             </div>
         )
     }

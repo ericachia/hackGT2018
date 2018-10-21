@@ -42,13 +42,14 @@ class LoginPage extends Component {
         this.props.history.push("/createAccount");
 
     submit = e => {
-        fetch('https://skilful-courage-220001.appspot.com/user/10').then(response =>
+        fetch('https://skilful-courage-220001.appspot.com/user').then(response =>
             response.json()).then(json => {
                 for(let i = 0; i < json.length; i++) {
-                    if(this.state.data.username === json[i].username && this.state.data.password === json[i].password) {
-                        this.props.history.push("/dashboard");
-                    } else {
-                        alert("No Good");
+                    if (this.state.data.username === json[i].username && this.state.data.password === json[i].password) {
+                        this.props.history.push({
+                            pathname: "/dashboard",
+                            state: {userId: json[i].user_id}
+                        });
                     }
                 }
         });
