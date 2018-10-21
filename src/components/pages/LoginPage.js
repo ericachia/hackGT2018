@@ -66,7 +66,8 @@ class LoginPage extends Component {
                                onChange={this.onChange}/>
                     </Form.Field>
                     <Form.Field>
-                        <Input placeholder="password"
+                        <Input type='password'
+                               placeholder="password"
                                value = {this.state.data.password}
                                name = "password"
                                onChange={this.onChange}/>

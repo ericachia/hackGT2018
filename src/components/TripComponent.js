@@ -21,31 +21,46 @@ class TripComponent extends Component {
     class itself, and can be called by the notation this.state.data.variable.
      */
     state = {
-        data: {
-            username: "",
-            password: ""
-        }
+        data: [],
+        names: []
     };
 
 
     componentDidMount = () => {
         console.log(this.props.history.location.state.name);
-    }
-
+        fetch("https://skilful-courage-220001.appspot.com/transaction?tripID=1").then(response => response.json())
+            .then(json => {
+                this.setState({
+                    data: json
+                });
+                console.log(this.state.data);
+                for(var i  = 0; i < this.state.data.length; i++) {
+                    fetch("https://skilful-courage-220001.appspot.com/user/" + this.state.data[i].user_id).then(
+                        response => response.json()).then(json => {
+                            let nameList = this.state.names;
+                            nameList.push(json[0].firstname + " " + json[0].lastname);
+                        this.setState({
+                            name : nameList
+                        })
+                        console.log(this.state.name);
+                    });
+                }
+            })
+    };
 
 
     render() {
-        const data = [{name: "Caitlin", des: "Uber", amt: "$10.60"}, {name: "Erica", des: "Hotel", amt: "$37.54"}];
+
         const panes = [
             { menuItem: 'Transactions', render: () =>
                 <Tab.Pane>
                     <List divided relaxed>
-                    {data.map(el =>
+                    {this.state.data.map((el, index) =>
                         <List.Item>
                             <List.Content>
-                                <List.Header>{el.name}</List.Header>
-                                <List.Description>{el.des}</List.Description>
-                                <List.Description>{el.amt}</List.Description>
+                                <List.Header>{this.state.names[index]}</List.Header>
+                                <List.Description>{el.description}</List.Description>
+                                <List.Description>{el.amount}</List.Description>
                             </List.Content>
                         </List.Item>
                     )}

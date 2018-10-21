@@ -22,7 +22,8 @@ class CreateAccountPage extends Component {
         data: {
             username: "",
             password: "",
-            name: ""
+            firstname: "",
+            lastname: ""
         }
     };
 
@@ -38,7 +39,13 @@ class CreateAccountPage extends Component {
         });
 
     submit = e => {
-        this.props.history.push("/");
+        fetch("https://skilful-courage-220001.appspot.com/create/user?username=" +
+            this.state.data.username + "&password=" + this.state.data.password +
+            "&firstname=" + this.state.data.firstname + "&lastname=" + this.state.data.lastname, {
+                method: "GET"
+            }).then(res => {
+                this.props.history.push("/");
+            });
     }
 
     render() {
@@ -47,10 +54,16 @@ class CreateAccountPage extends Component {
                 <h1 id={"title"}>REGISTER</h1>
                 <Form onSubmit = {this.submit}>
                     <Form.Field>
-                        <Input placeholder = "Input Name"
+                        <Input placeholder = "First Name"
                         onChange={this.onChange}
-                        name = "name"
-                        value = {this.state.data.name}/>
+                        name = "firstname"
+                        value = {this.state.data.firstname}/>
+                    </Form.Field>
+                    <Form.Field>
+                        <Input placeholder = "Last Name"
+                               onChange={this.onChange}
+                               name = "lastname"
+                               value = {this.state.data.lastname}/>
                     </Form.Field>
                     <Form.Field>
                         <Input placeholder = "Create Username"
@@ -59,7 +72,7 @@ class CreateAccountPage extends Component {
                         value = {this.state.data.username}/>
                     </Form.Field>
                     <Form.Field>
-                        <Input placeholder = "Create Password"
+                        <Input type='password' placeholder = "Create Password"
                         onChange = {this.onChange}
                         name = "password"
                         value = {this.state.data.password}/>
