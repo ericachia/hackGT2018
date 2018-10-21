@@ -14,10 +14,17 @@ body {
 }
 
 #signInButton,
-#createAccountButton {
+#createAccountButton,
+#createTripButton,
+#enterCodeButton {
     background-color: #FFBF8A;
     color: white;
     width: 200px;
 }
 
-
+#newTripButton,
+#existingTripButton {
+    background-color: #FFBF8A;
+    color: white;
+    width: 300px;
+}

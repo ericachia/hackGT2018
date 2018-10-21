@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Input, Form, Button } from 'semantic-ui-react'
 import HeaderComponent from "./../HeaderComponent";
+import "./LoginCreateUserPage.css"
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -18,12 +19,12 @@ class ExistingTripPage extends Component {
     render() {
         return (
             <div>
-                <HeaderComponent name = "Travel Code"/>
+                <HeaderComponent name = "TRAVEL CODE"/>
                 <Form>
                     <Form.Field>
                         <Input placeholder = "Enter Travel Code"/>
                     </Form.Field>
-                    <Button type="submit">Enter Code</Button>
+                    <Button type="submit" id={"enterCodeButton"}>ENTER CODE</Button>
                 </Form>
             </div>
         )

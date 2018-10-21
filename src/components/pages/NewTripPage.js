@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Input, Form, Button } from 'semantic-ui-react'
 import HeaderComponent from "./../HeaderComponent";
-
+import "./LoginCreateUserPage.css"
 
 /*
     Above the render() is where you write you javascript functions for buttons and whatnot
@@ -41,7 +41,7 @@ class NewTripPage extends Component {
     render() {
         return (
             <div>
-                <HeaderComponent name = "New Trip"/>
+                <HeaderComponent name = "NEW TRIP"/>
                 <Form onSubmit = {this.submit}>
                     <Form.Field>
                         <Input placeholder = "Trip Name"
@@ -49,13 +49,7 @@ class NewTripPage extends Component {
                         value = {this.state.data.trip}
                         onChange={this.onChange}/>
                     </Form.Field>
-                    {/*<Form.Field>*/}
-                        {/*<Input placeholder = "Location"/>*/}
-                    {/*</Form.Field>*/}
-                    {/*<Form.Field>*/}
-                        {/*<Input placeholder = "Begin Date"/>*/}
-                    {/*</Form.Field>*/}
-                    <Button type="submit">Create Trip</Button>
+                    <Button type="submit" id={"createTripButton"}>CREATE TRIP</Button>
                 </Form>
             </div>
         )
