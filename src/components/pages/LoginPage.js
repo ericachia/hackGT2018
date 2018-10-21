@@ -36,7 +36,7 @@ class LoginPage extends Component {
         this.setState({
             data: {...this.state.data, [e.target.name]:e.target.value}
         });
-    }
+    };
 
     createAccount = e =>
         this.props.history.push("/createAccount");
@@ -52,14 +52,13 @@ class LoginPage extends Component {
                     }
                 }
         });
-    }
-
+    };
 
 
     render() {
         return (
             <div id={"container"}>
-                <h1 id={"title"}>TRAVEL APP</h1>
+                <h1 id={"title"}>TRAVEL BUG</h1>
                 <Form onSubmit={this.submit}>
                     <Form.Field>
                         <Input placeholder="username"

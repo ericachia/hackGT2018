@@ -28,14 +28,14 @@ class TripComponent extends Component {
 
     componentDidMount = () => {
         console.log(this.props.history.location.state.name);
-        fetch("https://skilful-courage-220001.appspot.com/transaction?tripID=1").then(response => response.json())
+        fetch("https://skilful-courage-220001.appspot.com/transaction?tripName=Paris").then(response => response.json())
             .then(json => {
                 this.setState({
                     data: json
                 });
                 console.log(this.state.data);
                 for(var i  = 0; i < this.state.data.length; i++) {
-                    fetch("https://skilful-courage-220001.appspot.com/user/" + this.state.data[i].user_id).then(
+                    fetch("https://skilful-courage-220001.appspot.com/user?userID=" + this.state.data[i].user_id).then(
                         response => response.json()).then(json => {
                             let nameList = this.state.names;
                             nameList.push(json[0].firstname + " " + json[0].lastname);
