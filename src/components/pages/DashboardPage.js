@@ -21,10 +21,7 @@ class DashboardPage extends Component {
     class itself, and can be called by the notation this.state.data.variable.
      */
     state = {
-        data: {
-            username: "",
-            password: ""
-        }
+        data: []
     };
 
     onClick = (e, {name}) => {
@@ -34,16 +31,25 @@ class DashboardPage extends Component {
         });
     }
 
+    componentDidMount = () => {
+        fetch("https://skilful-courage-220001.appspot.com/trip?userID=1").then(response => response.json())
+            .then(json => {
+                this.setState({
+                    data: json
+                });
+                console.log(this.state.data);
+            });
+    };
+
     render() {
-        const data = ["New York", "Chicago", "Japan","Los Angeles"];
         return (
             <div>
                 <HeaderComponent name = "MY TRIPS"/>
                 <Card.Group itemsPerRow={4}>
-                    {data.map(el => <Card name = {el} onClick={this.onClick}>
+                    {this.state.data.map(el => <Card name = {el.trip_name} onClick={this.onClick}>
                         <Image src={MapIcon}/>
                         <Card.Content>
-                            <Card.Header>{el}</Card.Header>
+                            <Card.Header>{el.trip_name}</Card.Header>
                         </Card.Content>
                     </Card>)}
                 </Card.Group>
