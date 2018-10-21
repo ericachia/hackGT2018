@@ -16,11 +16,34 @@ import MapIcon from "./img/map.png";
 
 class NotificationsComponent extends Component {
 
+    state = {
+        data: [],
+        payment: []
+    }
+
+    componentDidMount = () => {
+        const tripName = this.props.history.location.state.tripName;
+        const userId = this.props.history.location.state.userId;
+        fetch("https://skilful-courage-220001.appspot.com/transaction?tripName=" + tripName).then(response => response.json())
+            .then(json => {
+                this.setState({
+                    data: json
+                });
+                let payment = [];
+                for(let i = 0; i < this.state.data.length; i++) {
+                    if(this.state.data[i].user_id !== userId) {
+                        payment.push(this.state.data[i]);
+                    }
+                }
+                console.log(payment);
+        });
+    }
+
     render() {
         const data = [{name: "Erica Chia", amt: "$40.53"}, {name: "Patricia Ray", amt: "$32.43"}];
         return (
             <div>
-                <HeaderComponent name = "PAYMENTS DUE"/>
+                <HeaderComponent name = "PAYMENTS DUE" id = {this.props.history.location.state.userId}/>
 
                 <Card.Group centered data={"data"}>
                     {data.map(el => <Card name = {el} onClick={this.onClick}>

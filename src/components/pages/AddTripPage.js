@@ -17,10 +17,14 @@ import "./LoginCreateUserPage.css"
 class AddTripPage extends Component {
 
     render() {
+        const goTo = {
+            pathname: "/newTrip",
+            userId: this.props.history.location.state.userId
+        }
         return (
             <div>
                 <HeaderComponent name = "ADD TRIP"/>
-            <Button as ={Link} to = "/newTrip" id={"newTripButton"} size="big" >NEW TRIP</Button>
+            <Button as ={Link} to = {goTo} id={"newTripButton"} size="big" >NEW TRIP</Button>
             <Button as ={Link} to = "/existingTrip" id={"existingTripButton"} size="big">ENTER EXISTING TRIP</Button>
             </div>
         )

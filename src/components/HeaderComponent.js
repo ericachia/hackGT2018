@@ -28,6 +28,19 @@ class HeaderComponent extends Component {
 
 
     render() {
+        const id = this.props.id;
+        const goTo = {
+            pathname: "/dashboard",
+            state: {userId: id}
+        }
+        const goTo1 = {
+            pathname: "/addTrip",
+            state: {userId: id}
+        }
+        const goTo2 = {
+            pathname: "/notification",
+            state: {userId: id}
+        }
         return (
             <div>
                 <div id={"heading"}>
@@ -36,11 +49,11 @@ class HeaderComponent extends Component {
             <Menu widths={4}>
                 <Menu.Item as = {Link}
                     name='MY TRIPS'
-                    to="/dashboard"
+                    to={goTo}
                 />
                 <Menu.Item as = {Link}
                     name='ADD TRIP'
-                           to = "/addTrip"
+                           to = {goTo1}
                 />
                 <Menu.Item as = {Link}
                     name='MY PROFILE'
@@ -48,7 +61,7 @@ class HeaderComponent extends Component {
                 />
                 <Menu.Item as = {Link}
                            name="NOTIFICATIONS"
-                           to = "/notification"
+                           to = {goTo2}
                 >
                 </Menu.Item>
             </Menu>
