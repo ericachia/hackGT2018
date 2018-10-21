@@ -32,7 +32,7 @@ class DashboardPage extends Component {
     }
 
     componentDidMount = () => {
-        fetch("https://skilful-courage-220001.appspot.com/trip?userID=1").then(response => response.json())
+        fetch("https://skilful-courage-220001.appspot.com/trip?userID=10").then(response => response.json())
             .then(json => {
                 this.setState({
                     data: json
