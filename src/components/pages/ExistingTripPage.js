@@ -16,13 +16,39 @@ import "./LoginCreateUserPage.css"
 
 class ExistingTripPage extends Component {
 
+    state = {
+        data: {
+            trip: ""
+        }
+    };
+
+    onChange = e => {
+        this.setState({
+            data: {...this.state.data, [e.target.name]:e.target.value}
+        });
+    }
+
+    submit = e => {
+        const url = "https://skilful-courage-220001.appspot.com/create/trip?user_id=10&amountDue=69&tripName=" + this.state.data.trip;
+        console.log(url);
+        fetch(url, {
+            method: "GET"
+        }).then(res => {
+            this.props.history.push("/dashboard");
+        });
+    }
+
+
     render() {
         return (
             <div>
                 <HeaderComponent name = "TRAVEL CODE"/>
-                <Form>
+                <Form onSubmit={this.submit}>
                     <Form.Field>
-                        <Input placeholder = "Enter Travel Code"/>
+                        <Input placeholder = "Enter Travel Code"
+                               name = "trip"
+                               value = {this.state.data.trip}
+                               onChange={this.onChange}/>
                     </Form.Field>
                     <Button type="submit" id={"enterCodeButton"}>ENTER CODE</Button>
                 </Form>

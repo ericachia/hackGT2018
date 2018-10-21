@@ -29,7 +29,7 @@ class NewTripPage extends Component {
     }
 
     submit = e => {
-        const url = "https://skilful-courage-220001.appspot.com/create/trip?user_id=1&amountDue=69&tripName=" + this.state.data.trip;
+        const url = "https://skilful-courage-220001.appspot.com/create/trip?user_id=10&amountDue=69&tripName=" + this.state.data.trip;
         console.log(url);
         fetch(url, {
             method: "GET"
